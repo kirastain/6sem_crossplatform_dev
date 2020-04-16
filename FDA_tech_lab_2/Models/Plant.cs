@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FDA_tech_lab_2.Models
 {
-    public class Plant
+    public class Plant 
     {
         static int MaxId = 0;
         public int id { get; private set; }
@@ -41,6 +41,27 @@ namespace FDA_tech_lab_2.Models
         public void AddPOwner(int id) => OwnerIds.Add(id); //?????
         //public string AddPlant(Plant new_plant);
 
+        public void ChengeCapacity(float newCapacity)
+        {
+            Capacity = newCapacity;
+        }
 
+        public List<string> CollectOwners(List<int> OwnerIds)
+        {
+            List<string> OwnerNames = new List<string>;
+            while (OwnerIds != null)
+            {
+                Owner owner = new Owner();
+                OwnerNames.Add() //how to add owners here <------------------------------------
+            }
+            return OwnerNames;
+        }
+
+        public void ExtraDetails(float newCapacity, int newYear, string newName)
+        {
+            Capacity = newCapacity;
+            Name = newName;
+            Year = newYear;
+        }
     }
 }

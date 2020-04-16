@@ -38,9 +38,11 @@ namespace FDA_tech_lab_2.Controllers
             return plants;
         }
 
+        
+
         // GET: api/Plants/5
         [HttpGet("{id}")]
-        public ActionResult<Owner> GetPlant(int id)
+        public ActionResult<Plant> GetPlant(int id)
         {
             var plant = plants.FirstOrDefault(i => i.id == id);
 
@@ -52,15 +54,43 @@ namespace FDA_tech_lab_2.Controllers
             return Ok(plant);
         }
 
+        [HttpGet("{id}/owners")]
+        public ActionResult<List<string>> GetPlantOwners(int id)
+        {
+            var plant = plants.FirstOrDefault(i => i.id == id);
+
+            if (plant == null)
+            {
+                return NotFound();
+            }
+
+            List<string> OwnerNames = plant.CollectOwners(plant.OwnerIds);
+            return OwnerNames;
+        }
+
         [HttpPost]
         public string AddPlant([FromForm]Plant new_plant)
         {
             plants.Add(new_plant);
             return "Added";
         }
+
+        [HttpPost("{id}/owner={OwnerId}")]
+        public ActionResult<Plant> AddOwners(int id, int OwnerId)
+        {
+            if (plants[id].OwnerIds == null)
+            {
+                plants[id].AddPOwner(id)
+            }
+
+            plants[id].AddPOwner(OwnerId);
+            return Ok(plants[id]);
+        }
+
         // PUT: api/Plants/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlant(long id, Plant plant)
         {

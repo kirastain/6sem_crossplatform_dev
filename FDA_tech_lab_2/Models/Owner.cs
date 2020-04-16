@@ -17,6 +17,20 @@ namespace FDA_tech_lab_2.Models
             Name = name;
             plantIds = new List<int>();
         }
+        public Owner ()
+        {
+            id = MaxId++;
+            Name = "unknown";
+            plantIds = new List<int>();
+
+        }
         public void AddPlant(int id) => plantIds.Add(id); //?????
+
+        public void ChangeName(string newName)
+        {
+            Name = newName;
+        }
+
+        
     }
 }

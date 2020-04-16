@@ -9,7 +9,7 @@ using FDA_tech_lab_2.Models;
 
 namespace FDA_tech_lab_2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] 
     [ApiController]
     public class OwnersController : ControllerBase
     {

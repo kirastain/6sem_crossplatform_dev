@@ -9,6 +9,7 @@ using FDA_tech_lab_2.Models;
 
 namespace FDA_tech_lab_2.Controllers
 {
+    /*
     [ApiController]
     [Route("api/[controller]")]
     public class TodoItemsController : ControllerBase
@@ -106,5 +107,5 @@ namespace FDA_tech_lab_2.Controllers
         {
             return _context.TodoItems.Any(e => e.Id == id);
         }
-    }
+    } */
 }

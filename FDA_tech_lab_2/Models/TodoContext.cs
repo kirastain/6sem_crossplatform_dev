@@ -13,6 +13,6 @@ namespace FDA_tech_lab_2.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        //public DbSet<TodoItem> TodoItems { get; set; }
     }
 }
