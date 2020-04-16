@@ -20,6 +20,15 @@ namespace FDA_tech_lab_2.Models
         {
 
         }
+        public Plant(string name, float capacity, int year, string country, List<int> ownerids)
+        {
+            id = MaxId++;
+            Name = name;
+            Capacity = capacity;
+            Year = year;
+            Country = country;
+            OwnerIds = ownerids;
+        }
         public Plant(string name, float capacity, int year, string country)
         {
             id = MaxId++;
@@ -46,7 +55,7 @@ namespace FDA_tech_lab_2.Models
             Capacity = newCapacity;
         }
 
-        public List<string> CollectOwners()
+        /*public List<string> CollectOwners()
         {
             List<string> OwnerNames = new List<string>;
             while (OwnerIds != null)
@@ -55,7 +64,7 @@ namespace FDA_tech_lab_2.Models
                 OwnerNames.Add() //how to add owners here <------------------------------------
             }
             return OwnerNames;
-        }
+        }*/
 
         public void ExtraDetails(float newCapacity, int newYear, string newName)
         {

@@ -13,7 +13,7 @@ namespace FDA_tech_lab_2.Controllers
     [ApiController]
     public class PlantsController : ControllerBase
     {
-        static List<Plant> plants = new List<Plant>
+        /*static List<Plant> plants = new List<Plant>
         {
             new Plant("Kenai LNG", 1.5f, 1969, "USA"),
             new Plant("Marsa El Brega LNG", 3.2f, 1970, "Libya"),
@@ -22,7 +22,7 @@ namespace FDA_tech_lab_2.Controllers
             new Plant("ARDNOC LNG T1-2", 2.6f, 1977, "UAE"),
             new Plant("Arzew - GL1Z T1-6", 7.9f, 1978, "Algeria"),
             new Plant("Arzew - GL2Z T1-6", 8.2f, 1981, "Algeria"),
-        };
+        };*/
 
         private readonly TodoContext _context;
 
@@ -35,7 +35,7 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet]
         public IEnumerable<Plant> GetPlants()
         {
-            return plants;
+            return Startup.database.GetPlants();
         }
 
         
@@ -44,6 +44,7 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet("{id}")]
         public ActionResult<Plant> GetPlant(int id)
         {
+            var plants = GetPlants();
             var plant = plants.FirstOrDefault(i => i.id == id);
 
             if (plant == null)
@@ -57,7 +58,7 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet("{id}/owners")]
         public ActionResult<List<string>> GetPlantOwners(int id)
         {
-            var res = Startup.database.GetOwners(id); //null or list of owners
+            var res = Startup.database.GetOwnersByPlant(id); //null or list of owners
 
             //var plant = plants.FirstOrDefault(i => i.id == id);
 
@@ -70,13 +71,13 @@ namespace FDA_tech_lab_2.Controllers
         }
 
         [HttpPost]
-        public string AddPlant([FromForm]Plant new_plant)
+        public string AddPlant([FromForm]Plant NewPlant)
         {
-            plants.Add(new_plant);
+            Startup.database.AddPlant(NewPlant);
             return "Added";
         }
 
-        [HttpPost("{id}/owner={OwnerId}")]
+        /*[HttpPost("{id}/owner={OwnerId}")]
         public ActionResult<Plant> AddOwners(int id, int OwnerId)
         {
             if (plants[id].OwnerIds == null)
@@ -86,7 +87,7 @@ namespace FDA_tech_lab_2.Controllers
 
             plants[id].AddPOwner(OwnerId);
             return Ok(plants[id]);
-        }
+        }*/
 
         // PUT: api/Plants/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

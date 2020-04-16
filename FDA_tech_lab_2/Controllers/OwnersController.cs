@@ -13,13 +13,13 @@ namespace FDA_tech_lab_2.Controllers
     [ApiController]
     public class OwnersController : ControllerBase
     {
-        static List<Owner> owners = new List<Owner>
+        /*static List<Owner> owners = new List<Owner>
         {
             new Owner("Andeavor"),
             new Owner("LNDC"),
             new Owner("Shell"),
             new Owner("Mitsubishi")
-        };
+        };*/
        
         private readonly TodoContext _context;
 
@@ -32,13 +32,14 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet]
         public IEnumerable<Owner> GetOwners()
         {
-            return owners;
+            return Startup.database.GetOwners();
         }
 
         // GET: api/Owners/5
         [HttpGet("{id}")]
         public ActionResult<Owner> GetOwner(int id) //ActionResult is a type for a result from an action
         {
+            var owners = Startup.database.GetOwners();
             var owner = owners.FirstOrDefault(i=>i.id==id);
 
             if (owner == null)
