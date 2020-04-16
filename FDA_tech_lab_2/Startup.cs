@@ -11,9 +11,12 @@ namespace FDA_tech_lab_2
 {
     public class Startup
     {
+        public static Database database = new Database();
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }

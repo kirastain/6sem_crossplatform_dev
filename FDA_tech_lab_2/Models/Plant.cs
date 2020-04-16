@@ -46,7 +46,7 @@ namespace FDA_tech_lab_2.Models
             Capacity = newCapacity;
         }
 
-        public List<string> CollectOwners(List<int> OwnerIds)
+        public List<string> CollectOwners()
         {
             List<string> OwnerNames = new List<string>;
             while (OwnerIds != null)

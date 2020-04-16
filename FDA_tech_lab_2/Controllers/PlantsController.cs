@@ -57,15 +57,16 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet("{id}/owners")]
         public ActionResult<List<string>> GetPlantOwners(int id)
         {
-            var plant = plants.FirstOrDefault(i => i.id == id);
+            var res = Startup.database.GetOwners(id); //null or list of owners
 
-            if (plant == null)
+            //var plant = plants.FirstOrDefault(i => i.id == id);
+
+            if (res == null)
             {
                 return NotFound();
             }
 
-            List<string> OwnerNames = plant.CollectOwners(plant.OwnerIds);
-            return OwnerNames;
+            return res;
         }
 
         [HttpPost]
