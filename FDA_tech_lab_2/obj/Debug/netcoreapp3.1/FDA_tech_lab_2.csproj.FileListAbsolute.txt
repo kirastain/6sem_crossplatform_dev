@@ -279,10 +279,12 @@ C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\bin\Debug\n
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.csprojAssemblyReference.cache
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\staticwebassets\FDA_tech_lab_2.StaticWebAssets.Manifest.cache
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\staticwebassets\FDA_tech_lab_2.StaticWebAssets.xml
-C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.AssemblyInfoInputs.cache
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.AssemblyInfo.cs
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.RazorTargetAssemblyInfo.cache
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.csproj.CopyComplete
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.dll
 C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\obj\Debug\netcoreapp3.1\FDA_tech_lab_2.pdb
+C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\ASUS\Documents\GitHub\6sem_crossplatform_dev\FDA_tech_lab_2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
