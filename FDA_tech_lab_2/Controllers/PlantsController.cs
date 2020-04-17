@@ -44,7 +44,7 @@ namespace FDA_tech_lab_2.Controllers
         [HttpGet("{id}")]
         public ActionResult<Plant> GetPlant(int id)
         {
-            var plants = GetPlants();
+            var plants = Startup.database.GetPlants();
             var plant = plants.FirstOrDefault(i => i.id == id);
 
             if (plant == null)
@@ -77,17 +77,26 @@ namespace FDA_tech_lab_2.Controllers
             return "Added";
         }
 
-        /*[HttpPost("{id}/owner={OwnerId}")]
+        [HttpPost("{id}/owner={OwnerId}")]
         public ActionResult<Plant> AddOwners(int id, int OwnerId)
         {
-            if (plants[id].OwnerIds == null)
+            var plants = Startup.database.GetPlants();
+            var plant = plants.FirstOrDefault(i => i.id == id);
+            if (plant == null)
             {
-                plants[id].AddPOwner(id)
+                return NotFound();
             }
-
-            plants[id].AddPOwner(OwnerId);
-            return Ok(plants[id]);
-        }*/
+            var IsOwnerInList = plant.OwnerIds.Contains(OwnerId);
+            if (IsOwnerInList == false)
+            {
+                if (Startup.database.AddOwnerToPlant(id, OwnerId))
+                {
+                    plant = plants.FirstOrDefault(i => i.id == id);
+                    return Ok(plant);
+                }
+            }
+            return Ok(plant);
+        }
 
         // PUT: api/Plants/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

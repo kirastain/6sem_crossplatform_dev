@@ -73,6 +73,15 @@ namespace FDA_tech_lab_2.Models
             var owner = owners.FirstOrDefault(p => p.id == owner_id);
             return owner?.Name ?? "";
         }
+
+        //adds an owner to the list
+        public bool AddOwnerToPlant(int id, int OwnerId)
+        {
+            plants[id].OwnerIds.Add(OwnerId);
+            if (plants[id].OwnerIds.Contains(OwnerId))
+                return true;
+            return false;
+        }
     }
 
     
