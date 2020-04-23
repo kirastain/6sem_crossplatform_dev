@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+*.user
+*.user
+FDA_tech_lab_2/FDA_tech_lab_2.csproj.user
