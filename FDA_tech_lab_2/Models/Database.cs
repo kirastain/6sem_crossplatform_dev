@@ -22,7 +22,7 @@ namespace FDA_tech_lab_2.Models
             {
                 new Plant("Kenai LNG", 1.5f, 1969, "USA"),
                 new Plant("Marsa El Brega LNG", 3.2f, 1970, "Libya"),
-                new Plant("Brunei LNG T1-4", 5.76f, 1973, "Brunei", new List<int>(){2, 3, 4}),
+                new Plant("Brunei LNG T1-4", 5.76f, 1973, "Brunei", new HashSet<int>(){2, 3, 4}),
                 new Plant("Brunei LNG T5", 1.44f, 1974, "Brunei"),
                 new Plant("ARDNOC LNG T1-2", 2.6f, 1977, "UAE"),
                 new Plant("Arzew - GL1Z T1-6", 7.9f, 1978, "Algeria"),
@@ -66,21 +66,35 @@ namespace FDA_tech_lab_2.Models
             {
                 return null;
             }
-            return plant.OwnerIds.Select(id => GetOwnerById(id)).ToList();
+            return plant.OwnerIds.Select(id => GetOwnerById(id)?.Name ?? "").ToList();
         }
-        public string GetOwnerById(int owner_id)
+        public Owner GetOwnerById(int owner_id)
         {
             var owner = owners.FirstOrDefault(p => p.id == owner_id);
-            return owner?.Name ?? "";
+            return owner;
         }
+        public Plant GetPlantById(int plant_id) => plants.FirstOrDefault(p => p.id == plant_id);
 
         //adds an owner to the list
-        public bool AddOwnerToPlant(int id, int OwnerId)
+        public bool AddOwnerToPlant(int plantId, int ownerId)
         {
-            plants[id].OwnerIds.Add(OwnerId);
-            if (plants[id].OwnerIds.Contains(OwnerId))
-                return true;
-            return false;
+            var owner = GetOwnerById(ownerId);
+            var plant = GetPlantById(plantId);
+
+            if (plant == null || owner == null)
+                return false;
+
+            owner.AddPlant(plantId);
+            plant.AddPOwner(ownerId);
+            return true;
+
+            //plants[id].OwnerIds.Add(OwnerId);//index != id (!)
+       
+            //return plants[plantId].OwnerIds.Contains(ownerId);
+
+            //if (plants[id].OwnerIds.Contains(OwnerId))
+            //    return true;
+            //return false;
         }
     }
 

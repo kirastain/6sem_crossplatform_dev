@@ -15,38 +15,37 @@ namespace FDA_tech_lab_2.Models
         public float Capacity { get; private set; }
         public int Year { get; private set; }
         public string Country { get; private set; }
-        public List<int> OwnerIds { get; private set; }
+        public HashSet<int> OwnerIds { get; private set; }//гарантирует, что один владелец не появится дважды
         public Plant (): this("new_plant")
         {
-
         }
-        public Plant(string name, float capacity, int year, string country, List<int> ownerids)
+        public Plant(string name, float capacity=0, int year=0, string country = "unknown", HashSet<int> ownerids = null)
         {
             id = MaxId++;
             Name = name;
             Capacity = capacity;
             Year = year;
             Country = country;
-            OwnerIds = ownerids;
+            OwnerIds = ownerids?? new HashSet<int>();
         }
-        public Plant(string name, float capacity, int year, string country)
-        {
-            id = MaxId++;
-            Name = name;
-            Capacity = capacity;
-            Year = year;
-            Country = country;
-            OwnerIds = new List<int>();
-        }
-        public Plant(string name)
-        {
-            id = MaxId++;
-            Name = name;
-            Capacity = 0.0f;
-            Year = 0;
-            Country = "unknown";
-            OwnerIds = new List<int>();
-        }
+        //public Plant(string name, float capacity, int year, string country)
+        //{
+        //    id = MaxId++;
+        //    Name = name;
+        //    Capacity = capacity;
+        //    Year = year;
+        //    Country = country;
+        //    OwnerIds = new List<int>();
+        //}
+        //public Plant(string name)
+        //{
+        //    id = MaxId++;
+        //    Name = name;
+        //    Capacity = 0.0f;
+        //    Year = 0;
+        //    Country = "unknown";
+        //    OwnerIds = new List<int>();
+        //}
         public void AddPOwner(int id) => OwnerIds.Add(id); //?????
         //public string AddPlant(Plant new_plant);
 
