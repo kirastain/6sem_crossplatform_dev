@@ -7,9 +7,17 @@ namespace FDA_tech_lab_2.Models
 {
     public class Person
     {
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-        
+        public string login { get; set; }
+        public string password { get; set; }
+        public string role { get; set; }
+
+        public Person()
+        {
+            login = "admin";
+            password = "12345";
+            role = "admin";
+        }
+
     }
+
 }

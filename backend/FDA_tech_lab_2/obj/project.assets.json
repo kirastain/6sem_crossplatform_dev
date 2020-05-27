@@ -8864,11 +8864,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\FDA_tech_lab_2\\FDA_tech_lab_2.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\backend\\FDA_tech_lab_2\\FDA_tech_lab_2.csproj",
       "projectName": "FDA_tech_lab_2",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\FDA_tech_lab_2\\FDA_tech_lab_2.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\backend\\FDA_tech_lab_2\\FDA_tech_lab_2.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\FDA_tech_lab_2\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\6sem_crossplatform_dev\\backend\\FDA_tech_lab_2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

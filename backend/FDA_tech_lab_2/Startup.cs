@@ -56,10 +56,18 @@ namespace FDA_tech_lab_2
             );
 
             services.AddControllers();
+
+            services.AddCors(options => options.AddDefaultPolicy(policy =>
+                policy
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin()));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
