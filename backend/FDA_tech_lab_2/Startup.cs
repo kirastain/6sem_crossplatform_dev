@@ -23,6 +23,11 @@ namespace FDA_tech_lab_2
     public class Startup
     {
         public static Database database = new Database();
+        public static List<Person> Users { get; } = new List<Person>
+        {
+            new Person("user", "user", "user"),
+            new Person("admin", "admin", "admin"),
+        };
 
         public Startup(IConfiguration configuration)
         {

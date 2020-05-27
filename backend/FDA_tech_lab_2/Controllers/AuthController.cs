@@ -13,6 +13,22 @@ namespace FDA_tech_lab_2.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        public struct LoginData
+        {
+            public string login { get; set; }
+            public string password { get; set; }
+        }
+        [HttpPost]
+        public object GetToken([FromBody] LoginData ld)
+        {
+            var user = Startup.Users.FirstOrDefault(u => u.Login == ld.login && u.Password == ld.password);
+            if (user == null)
+            {
+                Response.StatusCode = 401;
+                return new { message = "wrong login/password" };
+            }
+            return Authorization.GenerateToken(user.Role == "admin");
+        }
         [HttpGet("token")]
         public string GetToken()
         {
