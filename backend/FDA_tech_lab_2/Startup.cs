@@ -17,17 +17,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-
 namespace FDA_tech_lab_2
 {
     public class Startup
     {
         public static Database database = new Database();
-        public static List<Person> Users { get; } = new List<Person>
-        {
-            new Person("user", "user", "user"),
-            new Person("admin", "admin", "admin"),
-        };
+        
 
         public Startup(IConfiguration configuration)
         {
@@ -62,16 +57,18 @@ namespace FDA_tech_lab_2
 
             services.AddControllers();
 
-            services.AddCors(options => options.AddDefaultPolicy(policy =>
-                policy
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowAnyOrigin()));
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors();
+            app.UseCors(
+                cpb => cpb
+                .SetIsOriginAllowed(_ => true)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                );
 
             if (env.IsDevelopment())
             {

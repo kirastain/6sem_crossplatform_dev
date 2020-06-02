@@ -2,21 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace FDA_tech_lab_2.Models
 {
     public class Person
     {
         public string Login { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-
-        public Person(string login, string password, string role)
+        private byte[] password;
+        public string Password
         {
-            Login = login;
-            Password = password;
-            Role = role;
+            get
+            {
+                var sb = new StringBuilder();
+                foreach (var b in new MD5CryptoServiceProvider().ComputeHash(password))
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+            set { password = Encoding.UTF8.GetBytes(value); }
         }
+        public bool IsAdmin => Login == "admin";
+
+        public bool CheckPassword(string password) => password == Password;
+
+
     }
 
 }

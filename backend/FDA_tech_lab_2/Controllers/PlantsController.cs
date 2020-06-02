@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FDA_tech_lab_2.Models;
+using Microsoft.Extensions.Logging;
 
 namespace FDA_tech_lab_2.Controllers
 {
@@ -38,7 +40,13 @@ namespace FDA_tech_lab_2.Controllers
             return Startup.database.GetPlants();
         }
 
-        
+        [HttpGet("secret")]
+        [Authorize(Roles = "admin")]
+        public IEnumerable<Plant> GetSecret()
+        {
+            return Startup.database.GetPlants();
+        }
+
 
         // GET: api/Plants/5
         [HttpGet("{id}")]

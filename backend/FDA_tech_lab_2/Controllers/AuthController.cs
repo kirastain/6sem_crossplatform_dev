@@ -21,21 +21,21 @@ namespace FDA_tech_lab_2.Controllers
         [HttpPost]
         public object GetToken([FromBody] LoginData ld)
         {
-            var user = Startup.Users.FirstOrDefault(u => u.Login == ld.login && u.Password == ld.password);
+            var user = SharedData.Users.FirstOrDefault(u => u.Login == ld.login && u.Password == ld.password);
             if (user == null)
             {
                 Response.StatusCode = 401;
                 return new { message = "wrong login/password" };
             }
-            return Authorization.GenerateToken(user.Role == "admin");
+            return Authorization.GenerateToken(user.IsAdmin);
         }
         [HttpGet("token")]
-        public string GetToken()
+        public object GetToken()
         {
             return Authorization.GenerateToken();
         }
         [HttpGet("token/secret")]
-        public string GetAdminToken()
+        public object GetAdminToken()
         {
             return Authorization.GenerateToken(true);
         }

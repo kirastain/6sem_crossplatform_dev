@@ -16,7 +16,7 @@ namespace FDA_tech_lab_2.Models
         public static int LifetimeInYears => 2;
         public static SecurityKey SigningKey => new SymmetricSecurityKey(Encoding.ASCII.GetBytes("NothingIsTrueEverythingIsPermitted"));
 
-        internal static string GenerateToken(bool is_admin = false)
+        internal static object GenerateToken(bool is_admin = false)
         {
             var now = DateTime.UtcNow;
             var claims = new List<Claim>
@@ -36,7 +36,7 @@ namespace FDA_tech_lab_2.Models
                     claims: identity.Claims,
                     signingCredentials: new SigningCredentials(SigningKey, SecurityAlgorithms.HmacSha256)); ;
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-            return encodedJwt;
+            return new { token = encodedJwt};
         }
     }
 }
