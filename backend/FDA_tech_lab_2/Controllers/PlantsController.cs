@@ -41,7 +41,7 @@ namespace FDA_tech_lab_2.Controllers
         }
 
         [HttpGet("secret")]
-        [Authorize(Roles = "admin")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public IEnumerable<Plant> GetSecret()
         {
             return Startup.database.GetPlants();
