@@ -11,11 +11,11 @@ namespace FDA_tech_lab_2.Models
         static int MaxId = 0;
         public int id { get; private set; }
         
-        [BindRequired] public string Name { get; private set; }
-        public float Capacity { get; private set; }
-        public int Year { get; private set; }
-        public string Country { get; private set; }
-        public List<int> OwnerIds { get; private set; }
+        public string Name { get; set; }
+        public float Capacity { get; set; }
+        public int Year { get; set; }
+        public string Country { get; set; }
+        public List<int> OwnerIds { get; set; }
         public Plant ()//: this("new_plant")
         {
             id = MaxId++;

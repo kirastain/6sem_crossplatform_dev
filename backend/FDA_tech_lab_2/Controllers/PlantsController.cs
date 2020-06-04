@@ -42,9 +42,9 @@ namespace FDA_tech_lab_2.Controllers
 
         [HttpGet("secret")]
         [Authorize(AuthenticationSchemes = "Bearer")]
-        public IEnumerable<Plant> GetSecret()
+        public string GetSecret()
         {
-            return Startup.database.GetPlants();
+            return "Very secret string";
         }
 
 
@@ -79,6 +79,7 @@ namespace FDA_tech_lab_2.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string AddPlant([FromBody]Plant NewPlant)
         {
             
@@ -88,6 +89,7 @@ namespace FDA_tech_lab_2.Controllers
         }
 
         [HttpPost("{id}/owner={OwnerId}")]
+        [Authorize]
         public ActionResult<Plant> AddOwners(int id, int OwnerId)
         {
             var plants = Startup.database.GetPlants();
@@ -113,6 +115,7 @@ namespace FDA_tech_lab_2.Controllers
         // more details see https://aka.ms/RazorPagesCRUD.
         
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutPlant(long id, Plant plant)
         {
             if (id != plant.id)
@@ -155,6 +158,7 @@ namespace FDA_tech_lab_2.Controllers
 
         // DELETE: api/Plants/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Plant>> DeletePlant(long id)
         {
             var plant = await _context.Plants.FindAsync(id);
