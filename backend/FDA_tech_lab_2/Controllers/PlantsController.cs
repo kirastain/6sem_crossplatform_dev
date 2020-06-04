@@ -79,8 +79,10 @@ namespace FDA_tech_lab_2.Controllers
         }
 
         [HttpPost]
-        public string AddPlant([FromForm]Plant NewPlant)
+        public string AddPlant([FromBody]Plant NewPlant)
         {
+            
+            Console.WriteLine(NewPlant.Name);
             Startup.database.AddPlant(NewPlant);
             return "Added";
         }

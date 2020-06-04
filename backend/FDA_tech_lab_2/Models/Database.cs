@@ -51,6 +51,7 @@ namespace FDA_tech_lab_2.Models
         //Add an element
         public void AddPlant(Plant NewPlant)
         {
+            Console.WriteLine(NewPlant.Name);
             plants.Add(NewPlant);
         }
         public void AddOwner(Owner NewOwner)

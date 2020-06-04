@@ -16,9 +16,9 @@ namespace FDA_tech_lab_2.Models
         public int Year { get; private set; }
         public string Country { get; private set; }
         public List<int> OwnerIds { get; private set; }
-        public Plant (): this("new_plant")
+        public Plant ()//: this("new_plant")
         {
-
+            id = MaxId++;
         }
         public Plant(string name, float capacity, int year, string country, List<int> ownerids)
         {
@@ -38,7 +38,8 @@ namespace FDA_tech_lab_2.Models
             Country = country;
             OwnerIds = new List<int>();
         }
-        public Plant(string name)
+        //{name: "ffffffff", capacity: 1111, year: 11111, country: "ggg"}
+    public Plant(string name)
         {
             id = MaxId++;
             Name = name;
